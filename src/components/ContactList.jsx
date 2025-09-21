@@ -3,11 +3,13 @@ import { config } from '../App';
 import axios from 'axios';
 import './ContactList.css';
 import ContactForm from './ContactForm';
+import { useSnackbar } from 'notistack';
 const ContactList = () => {
     const [contactData,setContactData]=useState([]);
     const [page,setPage]=useState(1)
     const [totalPage,setTotalPage]=useState()
     const limit = 5;
+    const {enqueueSnackbar}=useSnackbar();
     const fetchData=async(currentPage=1)=>{
         try {
             console.log("hello in the fetch function")
@@ -20,7 +22,7 @@ const ContactList = () => {
             setPage(response.data.page)
             
         } catch (error) {
-            
+            console.log("error is occured ",error)
         }
     }
     const deleteContact=async(id)=>{
@@ -28,10 +30,11 @@ const ContactList = () => {
             const response = await axios.delete(`${config.endpoint}/${id}`)
             if(response.status===200)
             {
+               enqueueSnackbar("Data is Deleted Sucessfully ",{variant:"success"})
                 fetchData();
             }
         } catch (error) {
-            
+            console.log("error is occured ",error)
         }
 
     }
