@@ -1,6 +1,6 @@
-import ContactForm from "./components/ContactForm";
+
 import ContactList from "./components/ContactList";
-export const config ={"endpoint":"http://localhost:8082/api/contact"}
+export const config ={"endpoint":"https://contact-list-x9uw.onrender.com/api/contact"}
 function App() {
   return (
     <div>
