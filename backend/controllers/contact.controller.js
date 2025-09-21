@@ -16,10 +16,17 @@ const postContact=async(req,res)=>{
 
 const getContact = async(req,res)=>{
     try {
-        const result = await contactServiceInstace.getContact();
+        let {page,limit}=req.query;
+        console.log(page,limit)
+        page = parseInt(page)
+        limit = parseInt(limit)
+        const totalContacts = await contactServiceInstace.countContacts();
+        console.log(totalContacts)
+        const pages = Math.ceil(totalContacts/limit);
+        const result = await contactServiceInstace.getContact(page,limit);
         if(!result)
             res.status(400).json({"sucess":false,message:"data is not fetched"})
-        res.status(200).json({"sucess":true,message:"data fetched sucessfully","data":result})
+        res.status(200).json({"sucess":true,message:"data fetched sucessfully","data":result,"pages":pages,totalContacts,page})
     } catch (error) {
         res.status(500).json({error:error,message:"something went wrong"})
     }

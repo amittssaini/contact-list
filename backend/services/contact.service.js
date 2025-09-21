@@ -10,16 +10,23 @@ class Contact{
             
         }
     }
-    async getContact(){
+    async getContact(page,limit){
         try {
-            const result = await contactModel.find({});
+            const result = await contactModel.find().skip((page - 1) * limit).limit(limit).sort({ createdAt: -1 });;
             return result;
         } catch (error) {
             return error;
             
         }
     }
-
+    
+    async countContacts(){
+        try {
+            return await contactModel.countDocuments();
+        } catch (error) {
+            
+        }
+    }
     async deleteContact(id){
         try {
             console.log("id::",id);

@@ -1,0 +1,184 @@
+
+.contact-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  margin-top: 0px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border-style: 2px black solid;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading for Dashboard */
+.contact-page > h2 {
+  text-align: center;
+  
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2a3144;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+/* Put Form + Table in one clean layout */
+.contact-body {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ======================
+   Contact Form Styling
+====================== */
+.contact-form-container {
+  flex: 1;
+  min-width: 350px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #2a3144;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #555;
+}
+
+.contact-form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus {
+  outline: none;
+  border-color: #2a3144;
+  box-shadow: 0 0 4px rgba(42, 49, 68, 0.4);
+}
+
+.contact-form button {
+  padding: 12px;
+  border: none;
+  background: #2a3144;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #1f2533;
+}
+
+/* ======================
+   Contact List Styling
+====================== */
+.contact-list-container {
+  flex: 2;
+  min-width: 500px;
+  /* padding: 20px; */
+  background: #ffffff;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 14px rgba(0,0,0,0.1); */
+}
+
+.contact-list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2a3144;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.contact-table th {
+  background: #2a3144;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.contact-table tr:hover {
+  background: #f1f5f9;
+}
+
+.delete-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #d62828;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.pagination button {
+  background: #2a3144;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #1f2533;
+}
+
+/* Responsive: Stack Form & Table */
+@media screen and (max-width: 900px) {
+  .contact-body {
+    flex-direction: column;
+  }
+  .contact-form-container,
+  .contact-list-container {
+    width: 100%;
+  }
+}
